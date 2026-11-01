@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Suraj Prajapati | Lifestyle Portfolio</title>
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+scroll-behavior:smooth;
+}
+
+/* THEME */
+body{
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+/* LOADER */
+
+#loader{
+position:fixed;
+inset:0;
+background:black;
+z-index:99999;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:40px;
+font-weight:900;
+letter-spacing:5px;
+}
+
+/* CURSOR */
+
+#cursor{
+position:fixed;
+width:30px;
+height:30px;
+border-radius:50%;
+background:white;
+filter:blur(15px);
+opacity:.4;
+pointer-events:none;
+z-index:9999;
+}
+
+/* PROGRESS */
+
+.progress{
+position:fixed;
+top:0;
+left:0;
+height:4px;
+background:white;
+width:0%;
+z-index:10000;
+}
+
+/* NAVBAR */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+padding:15px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+z-index:999;
+text-align:center;
+}
+
+.logo{
+font-size:25px;
+font-weight:900;
+letter-spacing:3px;
+}
+
+/* BG */
+
+.stars{
+position:fixed;
+inset:0;
+z-index:-2;
+background:
+radial-gradient(circle,#ffffff22 1px,transparent 1px);
+background-size:40px 40px;
+animation:bgMove 20s linear infinite;
+}
+
+@keyframes bgMove{
+from{transform:translateY(0);}
+to{transform:translateY(40px);}
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+position:relative;
+}
+
+.avatar{
+width:170px;
+height:170px;
+border-radius:50%;
+border:4px solid white;
+object-fit:cover;
+animation:float 5s infinite;
+box-shadow:0 0 40px rgba(255,255,255,.3);
+}
+
+@keyframes float{
+50%{
+transform:translateY(-15px);
+}
+}
+
+.hero h1{
+margin-top:20px;
+font-size:45px;
+animation:glow 3s infinite;
+}
+
+@keyframes glow{
+
+50%{
+text-shadow:
+0 0 10px white,
+0 0 30px white,
+0 0 60px silver;
+}
+
+}
+
+.typing{
+margin-top:10px;
+height:30px;
+color:silver;
+font-size:20px;
+}
+
+.typing:after{
+content:"|";
+animation:blink .6s infinite;
+}
+
+@keyframes blink{
+50%{opacity:0;}
+}
+
+.bio{
+max-width:600px;
+margin-top:18px;
+line-height:1.8;
+color:#aaa;
+}
+
+/* BUTTON */
+
+.btn{
+display:inline-block;
+padding:15px 25px;
+background:white;
+color:black;
+text-decoration:none;
+border-radius:999px;
+font-weight:bold;
+margin-top:20px;
+transition:.4s;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+}
+
+/* SECTION */
+
+.section{
+padding:80px 20px;
+}
+
+.title{
+font-size:34px;
+text-align:center;
+margin-bottom:30px;
+animation:titleGlow 4s infinite;
+}
+
+@keyframes titleGlow{
+
+50%{
+text-shadow:
+0 0 15px white;
+}
+
+}
+
+.card{
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(15px);
+
+padding:25px;
+
+border-radius:20px;
+
+margin-bottom:20px;
+
+border:1px solid rgba(255,255,255,.08);
+
+transition:.5s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+
+/* GRID */
+
+.grid{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(150px,1fr));
+
+gap:15px;
+
+}
+
+.box{
+
+background:#111;
+
+padding:20px;
+
+border-radius:15px;
+
+text-align:center;
+
+transition:.4s;
+
+}
+
+.box:hover{
+
+transform:
+scale(1.08)
+rotate(2deg);
+
+}
+
+/* SOCIAL */
+
+.social a{
+
+display:block;
+
+padding:18px;
+
+margin-bottom:15px;
+
+text-decoration:none;
+
+color:white;
+
+background:#121212;
+
+border-radius:15px;
+
+transition:.4s;
+
+}
+
+.social a:hover{
+
+transform:translateX(8px);
+
+}
+
+/* INSTA */
+
+.insta{
+
+background:
+linear-gradient(
+45deg,
+#833ab4,
+#fd1d1d,
+#fcb045);
+
+}
+
+/* FOOTER */
+
+footer{
+
+padding:40px;
+
+text-align:center;
+
+color:#777;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="loader">
+SURAJ
+</div>
+
+<div id="cursor"></div>
+
+<div class="progress" id="bar"></div>
+
+<div class="stars"></div>
+
+<header>
+
+<div class="logo">
+SURAJ
+</div>
+
+</header>
+
+<section class="hero">
+
+<img
+class="avatar"
+src="suraj.jpg"
+alt="Suraj">
+
+<h1>
+Suraj Prajapati
+</h1>
+
+<div
+class="typing"
+id="typing">
+</div>
+
+<p class="bio">
+
+Explorer • Bike Lover • Music Lover • Lifestyle Creator
+
+</p>
+
+<a
+href="#about"
+class="btn">
+
+Explore More
+
+</a>
+
+</section>
+
+<section
+id="about"
+class="section">
+
+<h2 class="title">
+About
+</h2>
+
+<div class="card">
+
+Suraj enjoys travelling,
+bike rides,
+music,
+photography,
+friendships
+and creating unforgettable memories.
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">
+
+Lifestyle
+
+</h2>
+
+<div class="grid">
+
+<div class="box">🏍 Bike Life</div>
+
+<div class="box">📸 Photography</div>
+
+<div class="box">🌎 Travel</div>
+
+<div class="box">🎵 Music</div>
+
+<div class="box">🏏 Cricket</div>
+
+<div class="box">☕ Chill Time</div>
+
+<div class="box">📱 Social Media</div>
+
+<div class="box">🤝 Brotherhood</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">
+
+Life Moments
+
+</h2>
+
+<div class="card">
+🌄 Sunrise Views
+</div>
+
+<div class="card">
+🏍 Long Rides
+</div>
+
+<div class="card">
+📸 Beautiful Memories
+</div>
+
+<div class="card">
+🎵 Late Night Music
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">
+
+Favorites
+
+</h2>
+
+<div class="grid">
+
+<div class="box">🍕 Pizza</div>
+
+<div class="box">🏍 KTM</div>
+
+<div class="box">🎧 Music</div>
+
+<div class="box">🌧 Rain</div>
+
+<div class="box">📱 Instagram</div>
+
+<div class="box">🌎 Travel</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">
+
+Live Stats
+
+</h2>
+
+<div class="grid">
+
+<div class="box">
+
+<h3 id="days">0</h3>
+
+<p>Adventures</p>
+
+</div>
+
+<div class="box">
+
+<h3 id="songs">0</h3>
+
+<p>Songs</p>
+
+</div>
+
+<div class="box">
+
+<h3 id="rides">0</h3>
+
+<p>Rides</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="title">
+
+Social
+
+</h2>
+
+<div class="social">
+
+<a
+class="insta"
+href="https://instagram.com/suraj_prajapati">
+
+📸 @suraj_prajapati
+
+</a>
+
+<a href="#">
+
+💬 WhatsApp
+
+</a>
+
+<a href="#">
+
+▶ YouTube
+
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+© Suraj Prajapati Lifestyle Portfolio
+
+</footer>
+
+<script>
+
+/* LOADER */
+
+window.onload=()=>{
+
+setTimeout(()=>{
+
+loader.style.display="none";
+
+},1500);
+
+};
+
+/* CURSOR */
+
+const cursor=
+document.getElementById("cursor");
+
+document.addEventListener("mousemove",e=>{
+
+cursor.style.left=e.clientX+"px";
+
+cursor.style.top=e.clientY+"px";
+
+});
+
+/* TYPING */
+
+const words=[
+
+"Explorer",
+
+"Bike Lover",
+
+"Music Lover",
+
+"Traveler",
+
+"Dream Chaser"
+
+];
+
+let word=0;
+let char=0;
+
+function type(){
+
+let current=words[word];
+
+document.getElementById("typing")
+
+.innerHTML=
+
+current.substring(0,char);
+
+char++;
+
+if(char>current.length){
+
+char=0;
+
+word++;
+
+if(word>=words.length){
+word=0;
+}
+
+}
+
+setTimeout(type,120);
+
+}
+
+type();
+
+/* PROGRESS BAR */
+
+window.addEventListener("scroll",()=>{
+
+let total=
+document.documentElement.scrollHeight-
+window.innerHeight;
+
+let progress=
+(window.scrollY/total)*100;
+
+document.getElementById("bar")
+.style.width=
+progress+"%";
+
+});
+
+/* COUNTERS */
+
+let d=0;
+let s=0;
+let r=0;
+
+setInterval(()=>{
+
+if(d<365){
+d++;
+days.innerHTML=d;
+}
+
+if(s<5000){
+s+=25;
+songs.innerHTML=s;
+}
+
+if(r<250){
+r++;
+rides.innerHTML=r;
+}
+
+},20);
+
+</script>
+
+</body>
+</html>
